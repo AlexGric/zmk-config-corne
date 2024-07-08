@@ -81,13 +81,13 @@
             
             bindings = <
             /*╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮*/
-                &kp TAB       &trans        &kp Q         &kp W         &kp E         &kp R          &trans        &trans        &trans        &trans        &trans        &trans
+                &kp TAB       &kp N1        &kp Q         &kp W         &kp E         &kp R          &trans        &trans        &trans        &trans        &trans        &trans
             /*├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤*/
-                &kp LSHFT     &trans        &kp A         &kp S         &kp D         &kp F          &trans        &trans        &trans        &trans        &trans        &trans
+                &kp LSHFT     &kp N2        &kp A         &kp S         &kp D         &kp F          &trans        &trans        &trans        &trans        &trans        &trans
             /*├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤*/
-                &kp LCTRL     &trans        &kp Z         &kp X         &kp C         &kp V          &trans        &trans        &trans        &trans        &trans        &trans
+                &kp LCTRL     &kp N3        &kp Z         &kp X         &kp C         &kp V          &trans        &trans        &trans        &trans        &trans        &trans
             /*╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯*/
-                                                          &trans        &mo UTIL      &kp SPACE      &trans        &mo NUMB      &trans
+                                                          &kp N4        &mo UTIL      &kp SPACE      &trans        &mo NUMB      &trans
                                                       /*╰─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────╯*/
             >;
         };
