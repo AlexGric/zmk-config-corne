@@ -45,8 +45,8 @@
                                                           &kp LGUI      &mo UTIL      &kp SPACE      &kp RET       &mo NUMB      &mt LANG2 LANG1           /*LS(RALT) RALT*/
                                                       /*╰─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────╯*/
             >;
-        }
-t
+        };
+
         connection_layer {//1
 
             bindings = <
