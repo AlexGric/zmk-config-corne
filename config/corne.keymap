@@ -11,85 +11,78 @@
 #define BASE 0
 #define CONN 1
 #define NUMB 2
+
 //#define QWER 3
 
 / {
     behaviors {
-		
-		/*
+        /*
 		 * This executes a key combo
 		 */
-		lng: language_switch {
-			compatible = "zmk,behavior-macro";
-			label = "test";
-			#binding-cells = <0>;
-			bindings = <&kp A>;
-    		};
-    	};
 
+        Language_change: Language_change {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_SHIFT &kp LEFT_ALT>;
+            label = "LANGUAGE_CHANGE";
+        };
+    };
+
+    macros {
+    };
 
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {//0
-
+        default_layer {
             bindings = <
-            /*╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮*/
-                &kp TAB       &kp Q         &kp W         &kp E         &kp R         &kp T          &kp Y         &kp U         &kp I         &kp O         &kp P      &mt DEL BSPC
-            /*├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤*/
-                &kp LSHFT     &kp A         &kp S         &kp D         &kp F         &kp G          &kp H         &kp J         &kp K         &kp L         &kp SEMI      &kp SQT
-            /*├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤*/
-                &kp LCTRL     &kp Z         &kp X         &kp C         &kp V         &kp B          &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &kp ESC
-            /*╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯*/
-                                                         &kp LALT       &mo NUMB      &kp SPACE      &kp RET       &mo CONN      &mt LGUI  LALT
-                                                      /*╰─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────╯*/
+&kp TAB    &kp Q  &kp W  &kp E              &kp R  &kp T        &kp Y    &kp U  &kp I      &kp O    &kp P     &mt DEL BSPC
+&kp LSHFT  &kp A  &kp S  &kp D              &kp F  &kp G        &kp H    &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LCTRL  &kp Z  &kp X  &kp C              &kp V  &kp B        &kp N    &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
+                         &mt LALT LEFT_WIN  &mo 2  &kp SPACE    &kp RET  &mo 1  &trans
             >;
         };
 
-        connection_layer {//1
-
+        connection_layer {
             bindings = <
-            /*╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮*/
-                &trans        &trans        &trans        &trans        &trans        &trans         &trans        &trans        &trans        &trans        &trans        &trans
-            /*├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤*/
-                &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4   &trans        &mt HOME LEFT &mt PG_DN DOWN &mt PAGE_UP UP &mt END RIGHT  &trans
-            /*├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤*/
-                &trans        &trans        &trans        &trans        &trans        &trans         &trans        &trans        &trans        &trans        &trans        &trans
-            /*╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯*/
-                                                          &kp LGUI      &trans        &trans         &trans        &trans        &trans
-                                                      /*╰─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────╯*/                                      
+&trans            &trans  &trans  &trans             &trans  &trans    &trans  &trans         &trans          &trans          &trans         &mt DELETE BACKSPACE
+&kp LEFT_SHIFT    &trans  &trans  &trans             &trans  &trans    &trans  &mt HOME LEFT  &mt PG_DN DOWN  &mt PAGE_UP UP  &mt END RIGHT  &trans
+&kp LEFT_CONTROL  &trans  &trans  &trans             &trans  &trans    &trans  &trans         &trans          &trans          &trans         &trans
+                                  &mt LEFT_ALT LGUI  &mo 3   &trans    &trans  &trans         &trans
             >;
         };
 
-        numbers_layer {//2
-            
+        numbers_layer {
             bindings = <
-            /*╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮*/
-                &trans        &trans        &kp N1        &kp N2        &kp N3        &kp MINUS      &trans        &trans        &trans        &trans        &trans        &mt DEL BSPC
-            /*├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤*/
-                &kp LSHFT     &trans        &kp N4        &kp N5        &kp N6        &kp PLUS       &trans        &kp GRAVE     &kp LBKT      &kp RBKT      &kp NUBS      &kp BSLH
-            /*├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤*/
-                &kp LCTRL     &kp N0        &kp N7        &kp N8        &kp N9        &kp EQUAL      &mt F7 F1     &mt F8 F2     &mt F9 F3     &mt F10 F4    &mt F11 F5    &mt F12 F6
-            /*╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯*/
-                                                          &kp LGUI      &trans        &kp SPACE      &trans        &trans        &kp TILDE
-                                                      /*╰─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────╯*/
+&trans     &kp N1  &kp N2  &kp N3    &kp MINUS  &trans       &trans     &trans     &trans     &trans      &trans      &mt DEL BSPC
+&kp LSHFT  &kp N4  &kp N5  &kp N6    &kp EQUAL  &trans       &trans     &kp GRAVE  &kp LBKT   &kp RBKT    &kp NUBS    &trans
+&kp LCTRL  &kp N7  &kp N8  &kp N9    &kp N0     &trans       &mt F7 F1  &mt F8 F2  &mt F9 F3  &mt F10 F4  &mt F11 F5  &mt F12 F6
+                           &kp LGUI  &trans     &kp SPACE    &trans     &trans     &trans
             >;
         };
 
-              
-      //  qwerty_layer {//3
-//
-      //      bindings = <
-      //      /*╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮*/
-      //          &kp Q         &kp W         &kp E         &kp R         &kp T         &kp Y          &kp U         &kp I         &kp O         &kp P         &trans        &mt DEL BSPC
-      //      /*├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤*/
-      //          &kp A         &kp S         &kp D         &kp F         &kp G         &kp H          &kp J         &kp K         &kp L         &trans        &trans        &trans
-      //      /*├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤*/
-      //          &kp Z         &kp X         &kp C         &kp V         &kp B         &kp N          &kp M         &trans        &trans        &trans        &trans        &trans
-      //      /*╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯*/
-      //                                                    &trans        &mo UTIL      &kp SPACE      &trans        &trans        &trans
-      //                                                /*╰─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────╯*/                                      
-      //      >;
-      //  };
+        Connection {
+            bindings = <
+&trans          &trans        &trans      &trans      &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&bt BT_CLR_ALL  &bt BT_SEL 0  &bt BT_NXT  &bt BT_PRV  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans          &trans        &trans      &trans      &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                                          &trans      &trans  &trans    &trans  &trans  &trans
+            >;
+        };
+
+        //  qwerty_layer {//3
+        //
+        //      bindings = <
+        //      /*╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮*/
+        //          &kp Q         &kp W         &kp E         &kp R         &kp T         &kp Y          &kp U         &kp I         &kp O         &kp P         &trans        &mt DEL BSPC
+        //      /*├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤*/
+        //          &kp A         &kp S         &kp D         &kp F         &kp G         &kp H          &kp J         &kp K         &kp L         &trans        &trans        &trans
+        //      /*├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤*/
+        //          &kp Z         &kp X         &kp C         &kp V         &kp B         &kp N          &kp M         &trans        &trans        &trans        &trans        &trans
+        //      /*╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯*/
+        //                                                    &trans        &mo UTIL      &kp SPACE      &trans        &trans        &trans
+        //                                                /*╰─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────╯*/                                      
+        //      >;
+        //  };
     };
 };
